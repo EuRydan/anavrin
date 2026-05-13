@@ -1,3 +1,5 @@
+import './style.css'
+
 // FAQ Accordion Logic
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => {

@@ -42,9 +42,9 @@ if (mobileBtn && navLinksContainer) {
     mobileBtn.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
         if (navLinksContainer.classList.contains('active')) {
-            mobileBtn.textContent = 'FECHAR';
+            mobileBtn.innerHTML = '&#10005;'; // X icon
         } else {
-            mobileBtn.textContent = 'MENU';
+            mobileBtn.innerHTML = '&#9776;'; // Hamburger icon
         }
     });
 
@@ -52,7 +52,7 @@ if (mobileBtn && navLinksContainer) {
     document.querySelectorAll('.nav-links .nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navLinksContainer.classList.remove('active');
-            mobileBtn.textContent = 'MENU';
+            mobileBtn.innerHTML = '&#9776;';
         });
     });
 }

@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Pinyon+Script&display=swap');
 
 :root {
-    --brand-primary: #D4AF37; /* Gold */
-    --brand-secondary: #B8860B; /* Dark Goldenrod */
-    --bg-dark: #050505;
-    --text-main: #FFFFFF;
-    --text-muted: #A0A0A0;
-    --glass-bg: rgba(255, 255, 255, 0.02);
-    --glass-border: rgba(255, 255, 255, 0.07);
+    --brand-primary: #000000;
+    --brand-secondary: #000000;
+    --bg-dark: #FFFFFF;
+    --text-main: #000000;
+    --text-muted: #000000;
+    --glass-bg: rgba(0, 0, 0, 0.02);
+    --glass-border: rgba(0, 0, 0, 0.07);
     --accent-glow: rgba(212, 175, 55, 0.12);
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Manrope', sans-serif;
+    --font-sans: 'Manrope', sans-serif;
+    --font-signature: 'Pinyon Script', cursive;
 }
 
 * {
@@ -131,7 +132,7 @@ h1, h2, h3, .brand-font {
 }
 
 .navbar.scrolled {
-    background: rgba(5, 5, 5, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     padding: 1rem 0;
     border-bottom: 1px solid var(--glass-border);
@@ -146,7 +147,7 @@ h1, h2, h3, .brand-font {
 .logo {
     font-size: 1.5rem;
     letter-spacing: -0.5px;
-    color: #FFFFFF !important;
+    color: #000000 !important;
     text-decoration: none !important;
 }
 
@@ -175,6 +176,19 @@ h1, h2, h3, .brand-font {
     align-items: center;
     padding-top: 80px;
     position: relative;
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vh;
+    height: 100vw;
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: cover;
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
 }
 
 .hero-grid {
@@ -308,17 +322,32 @@ h1, h2, h3, .brand-font {
 
 .btn-primary {
     background: var(--brand-primary);
-    color: #000;
+    color: #FFFFFF;
+    border: 1.5px solid transparent;
 }
 
 .btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+    background: transparent;
+    color: #000000;
+    border: 1.5px solid #000000;
+    box-shadow: none;
+    transform: none;
 }
 
 .btn-outline {
     border: 1px solid var(--brand-primary);
     color: var(--brand-primary);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #000000;
+    border: 1.5px solid #000000;
+}
+
+.btn-secondary:hover {
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .btn-outline:hover {
@@ -337,6 +366,200 @@ h1, h2, h3, .brand-font {
     100% { transform: translateY(0px); }
 }
 
+/* Frame Section Scroll Transition */
+.frame-section {
+    background-color: #000000;
+    transition: background-color 0.8s ease;
+}
+
+.frame-text {
+    color: #FFFFFF;
+    transition: color 0.8s ease;
+}
+
+.frame-section.scrolled-section {
+    background-color: #FFFFFF;
+}
+
+.frame-section.scrolled-section .frame-text {
+    color: #000000;
+}
+
+.frame-badge {
+    background-color: #FFFFFF;
+    color: #000000;
+    transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+.frame-section.scrolled-section .frame-badge {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+/* Cards Wrapper Stack Effect */
+.cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 6rem;
+}
+
+.cards-wrapper .service-card {
+    background-color: #000000 !important;
+    padding: 3rem !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+/* Desktop Separated Grid */
+@media (min-width: 1025px) {
+    .cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .cards-wrapper .service-card:hover {
+        transform: translateY(-15px) scale(1.02) !important;
+    }
+}
+
+/* Override text color inside black cards */
+.cards-wrapper .service-card .frame-text {
+    color: #FFFFFF !important;
+}
+
+/* Override button styles inside black cards */
+.cards-wrapper .service-card .btn-primary {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    width: 100%;
+    justify-content: center;
+}
+
+.cards-wrapper .service-card .btn-primary:hover {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+}
+
+/* Override badge styles inside black cards */
+.cards-wrapper .service-card .frame-badge {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+/* About Section Grid (Kept for fallback/other uses) */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Sobre Section Scroll Effect */
+.sobre-left {
+    background-color: #000000;
+    transition: background-color 0.8s ease;
+}
+
+.sobre-text {
+    color: #FFFFFF;
+    transition: color 0.8s ease;
+}
+
+.sobre-section.scrolled-section .sobre-left {
+    background-color: #FFFFFF;
+}
+
+.sobre-section.scrolled-section .sobre-text {
+    color: #000000;
+}
+
+/* Contato Section Scroll Effect */
+.contato-right {
+    background-color: #FFFFFF;
+    transition: background-color 0.8s ease;
+}
+
+.contato-text-main {
+    color: #000000;
+    transition: color 0.8s ease;
+}
+
+.contato-text-muted {
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.8s ease;
+}
+
+.contato-section .btn-primary,
+.contato-section .btn-secondary {
+    transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
+}
+
+.contato-section.scrolled-section .contato-right {
+    background-color: #000000;
+}
+
+.contato-section.scrolled-section .contato-text-main {
+    color: #FFFFFF;
+}
+
+.contato-section.scrolled-section .contato-text-muted {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contato-section.scrolled-section .btn-primary {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+}
+
+.contato-section.scrolled-section .btn-secondary {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.contato-section.scrolled-section .btn-secondary:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Custom Cursor for Sobre Section */
+.sobre-section {
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #FFFFFF;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    will-change: transform;
+}
+
+.custom-cursor.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; text-align: center; }
@@ -344,4 +567,5 @@ h1, h2, h3, .brand-font {
     .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
     .service-card.large { grid-column: span 1; }
     .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
 }

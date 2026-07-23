@@ -34,13 +34,37 @@ document.querySelectorAll('.nav-link, .btn').forEach(link => {
     }
 });
 
-// Navbar background change on scroll
+// Navbar and Frame background change on scroll
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
+    const frameSection = document.getElementById('frame');
+    const sobreSection = document.getElementById('sobre');
+    const contatoSection = document.getElementById('contato');
+    
     if (window.scrollY > 50) {
         nav?.classList.add('scrolled');
+        frameSection?.classList.add('scrolled-section');
     } else {
         nav?.classList.remove('scrolled');
+        frameSection?.classList.remove('scrolled-section');
+    }
+
+    if (sobreSection) {
+        const rect = sobreSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2) {
+            sobreSection.classList.add('scrolled-section');
+        } else {
+            sobreSection.classList.remove('scrolled-section');
+        }
+    }
+
+    if (contatoSection) {
+        const rect = contatoSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2) {
+            contatoSection.classList.add('scrolled-section');
+        } else {
+            contatoSection.classList.remove('scrolled-section');
+        }
     }
 });
 
@@ -86,3 +110,36 @@ window.addEventListener('mousemove', (e) => {
         htmlEl.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+
+// Custom Cursor Logic for Sobre Section
+const sobreSectionEl = document.getElementById('sobre');
+const customCursor = document.getElementById('sobre-cursor');
+
+if (sobreSectionEl && customCursor) {
+    // Only apply on desktop devices where hover is supported
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        sobreSectionEl.addEventListener('mousemove', (e) => {
+            // Center the cursor (140px width/height -> 70px offset)
+            customCursor.style.transform = `translate3d(${e.clientX - 70}px, ${e.clientY - 70}px, 0)`;
+
+            // Check background context to change '+' color
+            const target = document.elementFromPoint(e.clientX, e.clientY);
+            const isRightSide = target?.closest('.sobre-right');
+            const isScrolled = sobreSectionEl.classList.contains('scrolled-section');
+
+            if (isRightSide || isScrolled) {
+                customCursor.style.color = '#000000';
+            } else {
+                customCursor.style.color = '#FFFFFF';
+            }
+        });
+
+        sobreSectionEl.addEventListener('mouseenter', () => {
+            customCursor.classList.add('active');
+        });
+
+        sobreSectionEl.addEventListener('mouseleave', () => {
+            customCursor.classList.remove('active');
+        });
+    }
+}

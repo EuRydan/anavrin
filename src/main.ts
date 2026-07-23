@@ -34,6 +34,29 @@ document.querySelectorAll('.nav-link, .btn').forEach(link => {
     }
 });
 
+// Mobile Menu Logic
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const navLinksContainer = document.querySelector('.nav-links');
+
+if (mobileBtn && navLinksContainer) {
+    mobileBtn.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        if (navLinksContainer.classList.contains('active')) {
+            mobileBtn.textContent = 'FECHAR';
+        } else {
+            mobileBtn.textContent = 'MENU';
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinksContainer.classList.remove('active');
+            mobileBtn.textContent = 'MENU';
+        });
+    });
+}
+
 // Navbar and Frame background change on scroll
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');

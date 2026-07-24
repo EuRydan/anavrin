@@ -490,7 +490,7 @@ h1, h2, h3, .brand-font {
 }
 
 /* Contato Section Scroll Effect */
-.contato-right {
+.contato-section {
     background-color: #FFFFFF;
     transition: background-color 0.8s ease;
 }
@@ -510,7 +510,7 @@ h1, h2, h3, .brand-font {
     transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
 }
 
-.contato-section.scrolled-section .contato-right {
+.contato-section.scrolled-section {
     background-color: #000000;
 }
 

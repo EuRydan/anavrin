@@ -400,8 +400,8 @@ h1, h2, h3, .brand-font {
 .cards-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .cards-wrapper .service-card,
@@ -417,7 +417,7 @@ h1, h2, h3, .brand-font {
     .cards-wrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .cards-wrapper .service-card:hover,

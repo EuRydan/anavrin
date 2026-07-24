@@ -401,10 +401,11 @@ h1, h2, h3, .brand-font {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-top: 6rem;
+    margin-top: 2rem;
 }
 
-.cards-wrapper .service-card {
+.cards-wrapper .service-card,
+.captacao-wrapper .service-card {
     background-color: #000000 !important;
     padding: 3rem !important;
     border: 1px solid rgba(255,255,255,0.1) !important;
@@ -419,32 +420,37 @@ h1, h2, h3, .brand-font {
         gap: 2rem;
     }
 
-    .cards-wrapper .service-card:hover {
+    .cards-wrapper .service-card:hover,
+    .captacao-wrapper .service-card:hover {
         transform: translateY(-15px) scale(1.02) !important;
     }
 }
 
 /* Override text color inside black cards */
-.cards-wrapper .service-card .frame-text {
+.cards-wrapper .service-card .frame-text,
+.captacao-wrapper .service-card .frame-text {
     color: #FFFFFF !important;
 }
 
 /* Override button styles inside black cards */
-.cards-wrapper .service-card .btn-primary {
+.cards-wrapper .service-card .btn-primary,
+.captacao-wrapper .service-card .btn-primary {
     background-color: #FFFFFF !important;
     color: #000000 !important;
     width: 100%;
     justify-content: center;
 }
 
-.cards-wrapper .service-card .btn-primary:hover {
+.cards-wrapper .service-card .btn-primary:hover,
+.captacao-wrapper .service-card .btn-primary:hover {
     background-color: transparent !important;
     color: #FFFFFF !important;
     border-color: #FFFFFF !important;
 }
 
 /* Override badge styles inside black cards */
-.cards-wrapper .service-card .frame-badge {
+.cards-wrapper .service-card .frame-badge,
+.captacao-wrapper .service-card .frame-badge {
     background-color: #FFFFFF !important;
     color: #000000 !important;
 }

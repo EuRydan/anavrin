@@ -437,8 +437,15 @@ h1, h2, h3, .brand-font {
 .captacao-wrapper .service-card .btn-primary {
     background-color: #FFFFFF !important;
     color: #000000 !important;
-    width: 100%;
     justify-content: center;
+}
+
+.cards-wrapper .service-card .btn-primary {
+    width: 100%;
+}
+
+.captacao-wrapper .service-card .btn-primary {
+    width: auto;
 }
 
 .cards-wrapper .service-card .btn-primary:hover,

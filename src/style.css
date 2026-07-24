@@ -623,6 +623,10 @@ h1, h2, h3, .brand-font {
     gap: 2rem;
 }
 
+.captacao-text-wrapper {
+    min-width: 300px;
+}
+
 @media (max-width: 768px) {
     .mobile-btn-group {
         flex-direction: column !important;
@@ -636,6 +640,10 @@ h1, h2, h3, .brand-font {
         width: 100% !important;
         display: flex;
         justify-content: center;
+    }
+    .captacao-text-wrapper {
+        min-width: 0 !important;
+        width: 100% !important;
     }
     .captacao-card {
         flex-direction: column !important;

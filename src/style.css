@@ -614,6 +614,15 @@ h1, h2, h3, .brand-font {
     .about-grid { grid-template-columns: 1fr; }
 }
 
+.captacao-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
 @media (max-width: 768px) {
     .mobile-btn-group {
         flex-direction: column !important;
@@ -627,6 +636,11 @@ h1, h2, h3, .brand-font {
         width: 100% !important;
         display: flex;
         justify-content: center;
+    }
+    .captacao-card {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 3rem !important;
     }
     .captacao-wrapper .service-card .btn-primary {
         width: 100% !important;
